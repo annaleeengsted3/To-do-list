@@ -1,3 +1,3 @@
 # boris
 
-forgot to gitignor images, oops
+forgot to gitignore images, oops
