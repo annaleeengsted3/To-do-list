@@ -4,18 +4,191 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Politicians</title>
+    <link href="https://fonts.googleapis.com/css?family=Italiana|Megrim|Quattrocento+Sans:400,400i&display=swap" rel="stylesheet" />
+    <title>To-do list for Annalee</title>
+    <style>
+      /* 
+font-family: 'Megrim', cursive;
+   font-family: 'Italiana', serif;
+   font-family: 'Quattrocento Sans', sans-serif;
+    */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background-color: black;
+        background-image: url("forest.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      header {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+      }
+      h1 {
+        font-family: "Italiana", serif;
+        font-family: "Megrim", cursive;
+      }
+
+      h2 {
+        font-family: "Italiana", serif;
+        font-size: 1.3rem;
+        text-decoration: underline;
+      }
+      .details {
+        font-family: "Quattrocento Sans", sans-serif;
+        font-style: italic;
+      }
+      .due {
+        font-family: "Quattrocento Sans", sans-serif;
+        font-weight: 600;
+      }
+
+      #container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 5vw;
+        /* margin: 10vw; */
+        position: relative;
+      }
+
+      label {
+        display: flex;
+        justify-content: space-between;
+        /* margin: 2% 0; */
+        font-family: "Quattrocento Sans", sans-serif;
+      }
+
+      textarea,
+      input {
+        padding: 10px;
+        line-height: 1.1;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+      }
+      input {
+        padding: 3px;
+        line-height: 1.1;
+      }
+
+      .label_wrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2% 0;
+      }
+      form {
+        width: 80vw;
+        height: 20vh;
+        background-color: rgba(31, 35, 39, 0.822);
+        margin: 0 10vw;
+        position: fixed;
+        bottom: 0;
+        color: white;
+        padding: 0 10vw;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-column-gap: 2vw;
+        grid-template-rows: 1fr;
+        border-top: 10px solid rgb(26, 24, 24);
+        border-left: 10px solid rgb(26, 24, 24);
+        border-right: 10px solid rgb(26, 24, 24);
+        border-radius: 10px;
+      }
+
+      form:hover {
+        height: 30vh;
+      }
+      form > h2 {
+        font-family: "Megrim", cursive;
+        align-self: center;
+      }
+      button#submit {
+        background-color: transparent;
+        justify-self: end;
+        align-self: center;
+        border: none;
+        font-family: "Megrim", cursive;
+        color: white;
+        font-size: 1rem;
+      }
+      button#submit:hover {
+        transform: scale(1.2);
+        color: rgb(120, 185, 136);
+      }
+
+      .item {
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        padding: 2vw;
+        background-color: rgba(233, 228, 219, 0.726);
+        border-radius: 15px;
+      }
+      .item > button {
+        background-color: transparent;
+        justify-self: end;
+        border: none;
+        font-family: "Quattrocento Sans", sans-serif;
+        font-family: "Megrim", cursive;
+        transition: 1s;
+        font-size: 0.8rem;
+      }
+      .item > button:hover {
+        transform: scale(1.2);
+        font-weight: 400;
+        text-decoration: underline;
+      }
+
+      .item:nth-child(even) {
+        background-color: rgba(141, 177, 171, 0.726);
+      }
+    </style>
   </head>
   <body>
-    <button>Add politician</button>
-    <article id="politicians"></article>
+    <header>
+      <h1>To-do List</h1>
+    </header>
+
+    <!-- <button class="addPol">Add politician button that works</button> -->
+
+    <article id="container"></article>
+
+    <form>
+      <h2>Add a new task:</h2>
+      <div class="label_wrap">
+        <label>
+          Task Title:
+          <input type="text" placeholder="E.g. buy socks " name="title" size="30" />
+        </label>
+
+        <label>
+          Details:
+          <textarea placeholder="Descriptive details or sub-tasks" name="details"></textarea>
+          <!-- <input type="text" placeholder="Descriptive details or sub-tasks" name="details" size="40" /> -->
+        </label>
+
+        <label>
+          Due date:
+          <textarea placeholder="When is it due? Date, time etc..." name="due"></textarea>
+          <!-- <input type="text" placeholder="Do this task by..." name="due" /> -->
+        </label>
+      </div>
+      <button type="submit" name="submit" id="submit">Add task!</button>
+    </form>
+
     <template>
-      <h2></h2>
-      <h3></h3>
-      <p class="age"></p>
-      <p class="iq"></p>
-      <p class="idiot"></p>
-      <img src="" alt="" />
+      <article class="item">
+        <button class="delete">Remove!</button>
+        <h2 class="title"></h2>
+        <p class="details"></p>
+        <p class="due"></p>
+      </article>
     </template>
 
     <script src="index.js"></script>
